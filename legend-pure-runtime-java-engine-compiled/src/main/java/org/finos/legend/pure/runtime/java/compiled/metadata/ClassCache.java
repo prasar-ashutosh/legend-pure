@@ -18,6 +18,7 @@ import org.eclipse.collections.api.RichIterable;
 import org.eclipse.collections.api.map.ConcurrentMutableMap;
 import org.eclipse.collections.impl.block.function.checked.CheckedFunction0;
 import org.eclipse.collections.impl.map.mutable.ConcurrentHashMap;
+import org.finos.legend.pure.m3.coreinstance.meta.pure.metamodel.PackageableElement;
 import org.finos.legend.pure.m3.coreinstance.meta.pure.metamodel.type.Type;
 import org.finos.legend.pure.runtime.java.compiled.generation.JavaPackageAndImportBuilder;
 import org.finos.legend.pure.runtime.java.compiled.generation.processors.support.CompiledSupport;
@@ -45,7 +46,7 @@ public class ClassCache
             @Override
             public Class safeValue() throws ClassNotFoundException
             {
-                String javaClassName = CompiledSupport.fullyQualifiedJavaInterfaceNameForPackageableElement(_type);
+                String javaClassName = CompiledSupport.fullyQualifiedJavaInterfaceNameForPackageableElement((PackageableElement) _type);
                 return classLoader.loadClass(javaClassName);
             }
         });
